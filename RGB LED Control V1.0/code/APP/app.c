@@ -52,33 +52,37 @@ void app_start(void)
 				if(flag == FALSE)
 				{
 					press_count++;
-					switch (press_count)
+					if(press_count == 1)
 					{
-						case 1:
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_HIGH);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_LOW);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_LOW);
-						break;
-						case 2:
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_LOW);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_HIGH);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_LOW);
-						break;
-						case 3:
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_LOW);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_LOW);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_HIGH);
-						break;
-						case 4:
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_HIGH);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_HIGH);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_HIGH);
-						break;
-						default:
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_LOW);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_LOW);
-								LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_LOW);
-						break;
+					
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_HIGH);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_LOW);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_LOW);
+					}
+					else if (press_count == 2)
+					{
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_LOW);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_HIGH);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_LOW);
+					}
+					else if (press_count == 3)
+					{
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_LOW);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_LOW);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_HIGH);
+					}
+					else if (press_count == 4)
+					{
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_HIGH);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_HIGH);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_HIGH);
+					}
+					else
+					{
+					
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_1,ENU_PIN_LOW);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_2,ENU_PIN_LOW);
+						LED_digitalWrite(ENU_PORT_F,ENU_PIN_3,ENU_PIN_LOW);
 					}
 					flag = TRUE;
 					if(press_count == MAX_PRESS)
