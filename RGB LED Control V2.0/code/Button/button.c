@@ -17,9 +17,9 @@
 /*=========TYPE DEFINITIONS=========*/
 
 /*=========APIs DECLERATIONS=========*/
-enu_error_state_t BUTTON_init(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t enu_gpio_pin_id)
+enu_button_error_t BUTTON_init(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t enu_gpio_pin_id)
 {
-	enu_error_state_t enu_error_state = SUCCESS;
+	enu_button_error_t enu_error_state = ENU_BUTTON_VALID;
 	str_gpio_config_t str_gpio_config ;
 	if((enu_gpio_port_id >= ENU_PORT_A) && (enu_gpio_port_id < ENU_MAX_PORT))
 	{
@@ -36,21 +36,21 @@ enu_error_state_t BUTTON_init(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_i
 		}
 		else
 		{
-			enu_error_state = FAILED;
+			enu_error_state = ENU_BUTTON_INVALID;
 		}
 	}
 	else
 	{
-		enu_error_state = FAILED;
+		enu_error_state = ENU_BUTTON_INVALID;
 	}
 	return enu_error_state;
 }
 
 
 
-enu_error_state_t BUTTON_digitalRead(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t enu_gpio_pin_id,uint8* p_value)
+enu_button_error_t BUTTON_digitalRead(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t enu_gpio_pin_id,uint8* p_value)
 {
-	enu_error_state_t enu_error_state = SUCCESS;
+	enu_button_error_t enu_error_state = ENU_BUTTON_VALID;
 	uint8 u8_value = 0;
 	if((enu_gpio_port_id >= ENU_PORT_A) && (enu_gpio_port_id < ENU_MAX_PORT))
 	{
@@ -63,17 +63,17 @@ enu_error_state_t BUTTON_digitalRead(enu_gpio_port_id_t enu_gpio_port_id,enu_gpi
 			}
 			else
 			{
-				enu_error_state = FAILED;
+				enu_error_state = ENU_BUTTON_INVALID;
 			}
 		}
 		else
 		{
-			enu_error_state = FAILED;
+			enu_error_state = ENU_BUTTON_INVALID;
 		}
 	}
 	else
 	{
-		enu_error_state = FAILED;
+		enu_error_state = ENU_BUTTON_INVALID;
 	}
 	return enu_error_state;
 	

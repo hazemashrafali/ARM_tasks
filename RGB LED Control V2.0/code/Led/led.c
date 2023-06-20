@@ -17,9 +17,9 @@
 /*=========TYPE DEFINITIONS=========*/
 
 /*=========APIs DECLERATIONS=========*/
-enu_error_state_t LED_init(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t enu_gpio_pin_id)
+enu_led_error_t LED_init(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t enu_gpio_pin_id)
 {
-	enu_error_state_t enu_error_state = SUCCESS;
+	enu_led_error_t enu_error_state = ENU_LED_VALID;
 	if((enu_gpio_port_id >= ENU_PORT_A) && (enu_gpio_port_id < ENU_MAX_PORT))
 	{
 		if((enu_gpio_pin_id >= ENU_PIN_0) && (enu_gpio_pin_id < ENU_MAX_PIN))
@@ -36,18 +36,18 @@ enu_error_state_t LED_init(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t
 		}
 		else
 		{
-			enu_error_state = FAILED;
+			enu_error_state = ENU_LED_INVALID;
 		}
 	}
 	else
 	{
-		enu_error_state = FAILED;
+		enu_error_state = ENU_LED_INVALID;
 	}
 	return enu_error_state;
 }
-enu_error_state_t LED_digitalWrite(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t enu_gpio_pin_id,enu_gpio_pin_level_t enu_gpio_pin_level)
+enu_led_error_t LED_digitalWrite(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_pin_id_t enu_gpio_pin_id,enu_gpio_pin_level_t enu_gpio_pin_level)
 {
-	enu_error_state_t enu_error_state = SUCCESS;
+	enu_led_error_t enu_error_state = ENU_LED_VALID;
 	if((enu_gpio_port_id >= ENU_PORT_A) && (enu_gpio_port_id < ENU_MAX_PORT))
 	{
 		if((enu_gpio_pin_id >= ENU_PIN_0) && (enu_gpio_pin_id < ENU_MAX_PIN))
@@ -58,17 +58,17 @@ enu_error_state_t LED_digitalWrite(enu_gpio_port_id_t enu_gpio_port_id,enu_gpio_
 			}
 			else
 			{
-				enu_error_state = FAILED;
+				enu_error_state = ENU_LED_INVALID;
 			}
 		}
 		else
 		{
-			enu_error_state = FAILED;
+			enu_error_state = ENU_LED_INVALID;
 		}
 	}
 	else
 	{
-		enu_error_state = FAILED;
+		enu_error_state = ENU_LED_INVALID;
 	}
 	return enu_error_state;
 	
