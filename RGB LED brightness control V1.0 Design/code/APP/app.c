@@ -19,6 +19,9 @@
 #define DEBOUNCE_TIME 	50
 #define BUTTON_PIN		ENU_PIN_0
 #define GREEN_LED_PIN	ENU_PIN_3
+#define FIRST_PRESS		1
+#define SECOND_PRESS	2
+#define THIRD_PRESS		3
 
 /*=========EXTERN VARIABLES=========*/
 
@@ -56,15 +59,15 @@ void app_start(void)
 				{
 					state_flag =TRUE;
 					press_count++;
-					if(press_count == 1)
+					if(press_count == FIRST_PRESS)
 					{
 						u8_duty_cycle = _30_PERCENT;
 					}
-					else if(press_count == 2)
+					else if(press_count == SECOND_PRESS)
 					{		
 						u8_duty_cycle = _60_PERCENT;		
 					}
-					else if(press_count == 3)
+					else if(press_count == THIRD_PRESS)
 					{
 						u8_duty_cycle = _90_PERCENT;	
 					}
